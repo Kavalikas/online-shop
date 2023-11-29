@@ -8,7 +8,9 @@
 import Foundation
 
 struct ProductItem {
+  
   let imageName: String
   let title: String
   let rating: Double
+  
 }

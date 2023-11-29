@@ -12,31 +12,18 @@ struct RatingStarsView: View {
   
   var body: some View {
     HStack {
-      Image(systemName: "star")
-        .resizable()
-        .frame(width: 12, height: 12)
-        .foregroundStyle(Color.gray)
-      Image(systemName: "star")
-        .resizable()
-        .frame(width: 12, height: 12)
-        .foregroundStyle(Color.gray)
-      Image(systemName: "star")
-        .resizable()
-        .frame(width: 12, height: 12)
-        .foregroundStyle(Color.gray)
-      Image(systemName: "star")
-        .resizable()
-        .frame(width: 12, height: 12)
-        .foregroundStyle(Color.gray)
-      Image(systemName: "star")
-        .resizable()
-        .frame(width: 12, height: 12)
-        .foregroundStyle(Color.gray)
+      
+      ForEach(viewModel.getStarImages(rating: viewModel.rating), id: \.self) { image in
+        Image(systemName: image)
+          .resizable()
+          .frame(width: 12, height: 12)
+          .foregroundStyle(Color.gray)
+      }
     }
   }
 }
 
 #Preview {
-  let viewModel = RatingStarsViewModel(rating: 3)
+  let viewModel = RatingStarsViewModel(rating: 3.2)
   return RatingStarsView(viewModel: viewModel)
 }
