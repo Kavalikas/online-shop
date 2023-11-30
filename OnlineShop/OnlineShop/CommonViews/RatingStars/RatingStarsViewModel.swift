@@ -10,7 +10,6 @@ import SwiftUI
 struct RatingStarsViewModel {
   /// The corresponding rating of the stars
   var rating: Double
-  
   /// This function returns an array of 5 images of stars based on viewModel's rating.
   /// Each index in the array has a star. There are three types of a star `star`, `star.fill`, `star.leadinghalf.filled`
   /// - Returns: An array with stars that represents the rating

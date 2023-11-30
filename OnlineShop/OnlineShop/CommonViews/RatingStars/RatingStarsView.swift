@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RatingStarsView: View {
   let viewModel: RatingStarsViewModel
+//  let starsArray = viewModel.getStarImages(rating: viewModel.rating)
   
   var body: some View {
+
     HStack {
       
-      ForEach(viewModel.getStarImages(rating: viewModel.rating), id: \.self) { image in
+      ForEach(Array(viewModel.getStarImages(rating: viewModel.rating).enumerated()), id: \.offset) { index, image in
         Image(systemName: image)
           .resizable()
           .frame(width: 12, height: 12)
@@ -24,6 +26,6 @@ struct RatingStarsView: View {
 }
 
 #Preview {
-  let viewModel = RatingStarsViewModel(rating: 3.2)
+  let viewModel = RatingStarsViewModel(rating: 3.5)
   return RatingStarsView(viewModel: viewModel)
 }
